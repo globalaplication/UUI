@@ -9,11 +9,11 @@ proc = subprocess.Popen(['sudo', 'blkid', '-c', '/dev/null'],stdout=subprocess.P
 for ij in range(0, 10, +1):
   line = proc.stdout.readline()
   if len(line.rstrip()) is not 0:
-    uid,typ  = cutstring(str(line.rstrip()), 'UUID'), cutstring(str(line.rstrip()), 'TYPE')
+    uid, typ  = cutstring(str(line.rstrip()), 'UUID') + ' ' + '/media/' + cutstring(str(line.rstrip()), 'UUID') , cutstring(str(line.rstrip()), 'TYPE')
     dict[ij] = {'UUID':uid, 'TYPE':typ}
   else:
     break
 for pt in range(0, len(dict), +2):
-    uid, typ, ect = 'UUID=' + '"' + dict[pt]['UUID'] + '"', 'TYPE=' + '"' + dict[pt]['TYPE'] + '"', 'defaults, noatime  0  0'
+    uid, typ, ect = 'UUID=' + '"' + dict[pt]['UUID'] + '"', '' + '"' + dict[pt]['TYPE'] + '"', 'defaults, noatime  0  0'
     Qstring = Qstring + uid + ' ' + typ + ' ' + ect + '\n'
-print (Qstring)
+print (Qstring.replace('"',''))
