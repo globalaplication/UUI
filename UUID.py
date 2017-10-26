@@ -11,7 +11,7 @@ for ij in range(0, 11, +1):
   if len(line.rstrip()) is not 0:
     uid, typ  = cutstring(str(line.rstrip()), 'UUID') + ' ' + '/media/' + cutstring(str(line.rstrip()), 'UUID') , cutstring(str(line.rstrip()), 'TYPE')
     dict[ij] = {'UUID':uid, 'TYPE':typ}
-for pt in range(0, len(dict), +2):
+for pt in range(0, len(dict), +1):
     if dict[pt]['TYPE'] != 'swap':
         uid, typ, ect = 'UUID=' + '"' + dict[pt]['UUID'] + '"', '' + '"' + dict[pt]['TYPE'] + '"', 'defaults, noatime  0  0'
         Qstring = Qstring + uid + ' ' + typ + ' ' + ect + '\n'
