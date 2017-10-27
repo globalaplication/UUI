@@ -1,1 +1,1 @@
-Scriptin çalıştırılması durumunda sorumluluk size aittir.
+Test Aşamasında Scriptin çalıştırılması durumunda sorumluluk size aittir.
